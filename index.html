@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>Global Chads Ranking</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #090909;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 25px 15px;
+    text-align: center;
+    background: #111;
+    border-bottom: 2px solid #ed1734;
+}
+
+.logo {
+    color: #ff203e;
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #aaa;
+    margin-top: 9px;
+    font-size: 13px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    padding: 15px 5px;
+    background: #101010;
+    border-bottom: 1px solid #292929;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff203e;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 15px 25px;
+}
+
+.hero h1 {
+    font-size: 30px;
+    line-height: 1.25;
+}
+
+.hero h1 span {
+    color: #ff203e;
+}
+
+.hero p {
+    color: #aaa;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+}
+
+.section-title {
+    font-size: 21px;
+    margin: 15px 0;
+}
+
+.section-title span {
+    color: #ff203e;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #141414;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.rank {
+    font-size: 22px;
+    font-weight: 900;
+    min-width: 35px;
+    color: #ff203e;
+    text-align: center;
+}
+
+.avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 10px;
+    background: #292929;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.info {
+    flex: 1;
+    min-width: 0;
+}
+
+.info h3 {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.info p {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.vote {
+    background: #ed1734;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 13px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.vote:active {
+    transform: scale(.96);
+}
+
+.vote:disabled {
+    opacity: .6;
+}
+
+.form-box {
+    background: #141414;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+.form-box h2 {
+    margin-bottom: 10px;
+}
+
+.form-box p {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 17px;
+    line-height: 1.5;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #090909;
+    color: white;
+    font-size: 14px;
+}
+
+.submit {
+    width: 100%;
+    padding: 13px;
+    margin-top: 5px;
+    background: #ed1734;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.note {
+    color: #777;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 25px 12px;
+}
+
+footer {
+    text-align: center;
+    padding: 22px 10px;
+    background: #111;
+    border-top: 1px solid #292929;
+    color: #888;
+    font-size: 12px;
+}
+
+@media (max-width: 400px) {
+    .logo { font-size: 23px; }
+    .hero h1 { font-size: 26px; }
+    .card { gap: 8px; padding: 10px; }
+    .avatar { width: 48px; height: 48px; }
+    .vote { padding: 9px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">GLOBAL CHADS RANKING</div>
+    <p>THE WORLD'S CHAD LEADERBOARD</p>
+</header>
+
+<nav>
+    <a href="#leaderboard">RANKINGS</a>
+    <a href="#submit">SUBMIT A CHAD</a>
+</nav>
+
+<section class="hero">
+    <h1>WHO IS THE <span>ULTIMATE CHAD?</span></h1>
+    <p>Discover the rankings. Cast your votes. Shape the leaderboard.</p>
+</section>
+
+<main class="container">
+
+    <section id="leaderboard">
+        <h2 class="section-title">🏆 GLOBAL <span>LEADERBOARD</span></h2>
+        <div id="ranking"></div>
+    </section>
+
+    <section id="submit" class="form-box">
+        <h2>➕ Submit a Chad</h2>
+        <p>Add a public figure, character, or your own profile to the demo leaderboard.</p>
+
+        <form id="submitForm">
+            <input
+                type="text"
+                id="chadName"
+                placeholder="Chad's name"
+                maxlength="50"
+                required
+            >
+
+            <input
+                type="url"
+                id="chadImage"
+                placeholder="Image URL (optional)"
+            >
+
+            <button class="submit" type="submit">SUBMIT PROFILE</button>
+        </form>
+    </section>
+
+    <p class="note">
+        DEMO VERSION · Votes are stored only in this browser.
+        This is not yet a global voting system.
+        Only submit images you have permission to use.
+    </p>
+
+</main>
+
+<footer>
+    © <span id="year"></span> GLOBAL CHADS RANKING
+    <br><br>
+    RANKINGS BUILT BY THE COMMUNITY 🗿
+</footer>
+
+<script>
+const starterChads = [
+    {
+        id: 1,
+        name: "The Alpha",
+        image: "",
+        votes: 0
+    },
+    {
+        id: 2,
+        name: "The Legend",
+        image: "",
+        votes: 0
+    },
+    {
+        id: 3,
+        name: "The Warrior",
+        image: "",
+        votes: 0
+    }
+];
+
+let chads;
+
+try {
+    const saved = localStorage.getItem("gcr_chads");
+    chads = saved ? JSON.parse(saved) : starterChads;
+
+    if (!Array.isArray(chads)) {
+        chads = starterChads;
+    }
+} catch (error) {
+    chads = starterChads;
+}
+
+function saveChads() {
+    try {
+        localStorage.setItem("gcr_chads", JSON.stringify(chads));
+    } catch (error) {
+        alert("Unable to save data in this browser.");
+    }
+}
+
+function renderRanking() {
+    const ranking = document.getElementById("ranking");
+
+    ranking.innerHTML = "";
+
+    const sorted = [...chads].sort((a, b) => b.votes - a.votes);
+
+    if (sorted.length === 0) {
+        ranking.textContent = "No profiles yet. Submit a Chad!";
+        return;
+    }
+
+    sorted.forEach((chad, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const rank = document.createElement("div");
+        rank.className = "rank";
+        rank.textContent = "#" + (index + 1);
+
+        const avatar = document.createElement("img");
+        avatar.className = "avatar";
+        avatar.alt = "Profile image";
+
+        if (chad.image) {
+            avatar.src = chad.image;
+            avatar.onerror = function() {
+                this.style.display = "none";
+            };
+        } else {
+            avatar.style.display = "none";
+        }
+
+        const info = document.createElement("div");
+        info.className = "info";
+
+        const name = document.createElement("h3");
+        name.textContent = chad.name;
+
+        const votes = document.createElement("p");
+        votes.textContent = "🔥 " + chad.votes + " votes";
+
+        info.appendChild(name);
+        info.appendChild(votes);
+
+        const button = document.createElement("button");
+        button.className = "vote";
+        button.textContent = "▲ VOTE";
+
+        button.addEventListener("click", function() {
+            chad.votes++;
+            saveChads();
+            renderRanking();
+        });
+
+        card.appendChild(rank);
+        card.appendChild(avatar);
+        card.appendChild(info);
+        card.appendChild(button);
+
+        ranking.appendChild(card);
+    });
+}
+
+document.getElementById("submitForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("chadName").value.trim();
+    const image = document.getElementById("chadImage").value.trim();
+
+    if (!name) {
+        alert("Please enter a name.");
+        return;
+    }
+
+    chads.push({
+        id: Date.now(),
+        name: name,
+        image: image,
+        votes: 0
+    });
+
+    saveChads();
+    renderRanking();
+
+    this.reset();
+
+    document.getElementById("leaderboard").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    alert("Profile added to this browser's demo leaderboard!");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderRanking();
+</script>
+
+</body>
+</html>
