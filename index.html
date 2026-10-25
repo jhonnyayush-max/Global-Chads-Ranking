@@ -4,432 +4,260 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090909">
-<title>Global Chads Ranking</title>
+<title>GLOBAL CHADS RANKING</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: #090909;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    padding: 25px 15px;
-    text-align: center;
-    background: #111;
-    border-bottom: 2px solid #ed1734;
-}
-
-.logo {
-    color: #ff203e;
-    font-size: 27px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-header p {
-    color: #aaa;
-    margin-top: 9px;
-    font-size: 13px;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-    padding: 15px 5px;
-    background: #101010;
-    border-bottom: 1px solid #292929;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #ff203e;
-}
-
-.hero {
-    text-align: center;
-    padding: 40px 15px 25px;
-}
-
-.hero h1 {
-    font-size: 30px;
-    line-height: 1.25;
-}
-
-.hero h1 span {
-    color: #ff203e;
-}
-
-.hero p {
-    color: #aaa;
-    margin-top: 12px;
-    font-size: 14px;
-}
-
-.container {
-    max-width: 700px;
-    margin: auto;
-    padding: 15px;
-}
-
-.section-title {
-    font-size: 21px;
-    margin: 15px 0;
-}
-
-.section-title span {
-    color: #ff203e;
-}
-
-.card {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    background: #141414;
-    border: 1px solid #292929;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 12px;
-}
-
-.rank {
-    font-size: 22px;
-    font-weight: 900;
-    min-width: 35px;
-    color: #ff203e;
-    text-align: center;
-}
-
-.avatar {
-    width: 58px;
-    height: 58px;
-    border-radius: 10px;
-    background: #292929;
-    object-fit: cover;
-    flex-shrink: 0;
-}
-
-.info {
-    flex: 1;
-    min-width: 0;
-}
-
-.info h3 {
-    font-size: 16px;
-    overflow-wrap: anywhere;
-}
-
-.info p {
-    color: #aaa;
-    font-size: 12px;
-    margin-top: 6px;
-}
-
-.vote {
-    background: #ed1734;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 13px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.vote:active {
-    transform: scale(.96);
-}
-
-.vote:disabled {
-    opacity: .6;
-}
-
-.form-box {
-    background: #141414;
-    border: 1px solid #292929;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 35px;
-}
-
-.form-box h2 {
-    margin-bottom: 10px;
-}
-
-.form-box p {
-    color: #aaa;
-    font-size: 13px;
-    margin-bottom: 17px;
-    line-height: 1.5;
-}
-
-input {
-    display: block;
-    width: 100%;
-    padding: 13px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background: #090909;
-    color: white;
-    font-size: 14px;
-}
-
-.submit {
-    width: 100%;
-    padding: 13px;
-    margin-top: 5px;
-    background: #ed1734;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.note {
-    color: #777;
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.6;
-    padding: 25px 12px;
-}
-
-footer {
-    text-align: center;
-    padding: 22px 10px;
-    background: #111;
-    border-top: 1px solid #292929;
-    color: #888;
-    font-size: 12px;
-}
-
-@media (max-width: 400px) {
-    .logo { font-size: 23px; }
-    .hero h1 { font-size: 26px; }
-    .card { gap: 8px; padding: 10px; }
-    .avatar { width: 48px; height: 48px; }
-    .vote { padding: 9px; }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#ff203e;--bg:#090909;--card:#151515;--muted:#aaa}
+body{background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 14px;background:#111;border-bottom:2px solid var(--red)}
+.logo{font-size:clamp(23px,5vw,34px);font-weight:900;letter-spacing:1px}
+.logo span{color:var(--red)}
+header p{color:#aaa;margin-top:9px;font-size:13px}
+nav{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;padding:13px 8px;background:#101010;position:sticky;top:0;z-index:5;border-bottom:1px solid #292929}
+nav a{color:white;text-decoration:none;font-size:12px;font-weight:bold;padding:10px 11px;border:1px solid #333;border-radius:6px}
+nav a:hover{border-color:var(--red);color:var(--red)}
+main{max-width:1100px;margin:auto;padding:16px 12px}
+.section{margin-bottom:38px;scroll-margin-top:85px}
+.section-title{font-size:22px;margin-bottom:7px}
+.section-title span{color:var(--red)}
+.subtitle{color:#999;font-size:13px;margin-bottom:17px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.slot{background:var(--card);border:1px solid #292929;border-radius:9px;padding:12px;min-width:0}
+.slot.filled{border-color:#48202a}
+.slot-top{display:flex;align-items:center;gap:10px;min-width:0}
+.avatar{width:53px;height:53px;flex-shrink:0;border-radius:7px;background:#242424;object-fit:cover}
+.profile-info{min-width:0;flex:1}
+.profile-name{font-size:14px;font-weight:bold;overflow-wrap:anywhere}
+.rank{font-size:11px;color:#999;margin-top:5px}
+.empty{color:#777;font-size:12px}
+.slot-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:12px}
+.vote{background:var(--red);border:0;color:white;border-radius:5px;padding:8px 10px;font-weight:bold;cursor:pointer}
+.vote:disabled{opacity:.5}
+.votes{font-size:12px;color:#bbb}
+form{background:#141414;border:1px solid #333;border-radius:10px;padding:17px}
+label{display:block;font-size:13px;margin:14px 0 7px;color:#ddd}
+input,select{width:100%;padding:12px;background:#090909;color:white;border:1px solid #444;border-radius:6px;font-size:14px}
+input:focus,select:focus{outline:1px solid var(--red)}
+.submit-btn{width:100%;margin-top:18px;background:var(--red);color:white;border:0;border-radius:6px;padding:13px;font-weight:bold;font-size:15px;cursor:pointer}
+.note{font-size:12px;color:#999;line-height:1.6;margin-top:13px}
+#message{font-size:13px;margin-top:12px;color:#ff6378}
+footer{text-align:center;color:#777;font-size:12px;padding:25px 12px;border-top:1px solid #292929}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}main{padding:25px 18px}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 
 <body>
-
 <header>
-    <div class="logo">GLOBAL CHADS RANKING</div>
-    <p>THE WORLD'S CHAD LEADERBOARD</p>
+  <div class="logo">GLOBAL <span>CHADS</span> RANKING</div>
+  <p>THE RANKING COMMUNITY</p>
 </header>
 
 <nav>
-    <a href="#leaderboard">RANKINGS</a>
-    <a href="#submit">SUBMIT A CHAD</a>
+  <a href="#chad">🗿 CHAD</a>
+  <a href="#adam">👑 ADAM</a>
+  <a href="#htn">🔥 HTN</a>
+  <a href="#submit">＋ SUBMIT PROFILE</a>
 </nav>
 
-<section class="hero">
-    <h1>WHO IS THE <span>ULTIMATE CHAD?</span></h1>
-    <p>Discover the rankings. Cast your votes. Shape the leaderboard.</p>
-</section>
+<main>
+  <section class="section" id="chad">
+    <h2 class="section-title">🗿 <span>CHAD</span> LIST</h2>
+    <p class="subtitle">100 PROFILE SLOTS</p>
+    <div class="grid" id="chad-grid"></div>
+  </section>
 
-<main class="container">
+  <section class="section" id="adam">
+    <h2 class="section-title">👑 <span>ADAM</span> LIST</h2>
+    <p class="subtitle">50 PROFILE SLOTS</p>
+    <div class="grid" id="adam-grid"></div>
+  </section>
 
-    <section id="leaderboard">
-        <h2 class="section-title">🏆 GLOBAL <span>LEADERBOARD</span></h2>
-        <div id="ranking"></div>
-    </section>
+  <section class="section" id="htn">
+    <h2 class="section-title">🔥 <span>HTN</span> LIST</h2>
+    <p class="subtitle">100 PROFILE SLOTS</p>
+    <div class="grid" id="htn-grid"></div>
+  </section>
 
-    <section id="submit" class="form-box">
-        <h2>➕ Submit a Chad</h2>
-        <p>Add a public figure, character, or your own profile to the demo leaderboard.</p>
+  <section class="section" id="submit">
+    <h2 class="section-title">＋ <span>SUBMIT PROFILE</span></h2>
+    <p class="subtitle">Submit a profile to an available slot.</p>
 
-        <form id="submitForm">
-            <input
-                type="text"
-                id="chadName"
-                placeholder="Chad's name"
-                maxlength="50"
-                required
-            >
+    <form id="profile-form">
+      <label for="name">PROFILE NAME</label>
+      <input id="name" type="text" maxlength="60" placeholder="Enter profile name" required>
 
-            <input
-                type="url"
-                id="chadImage"
-                placeholder="Image URL (optional)"
-            >
+      <label for="photo">PHOTO URL</label>
+      <input id="photo" type="url" placeholder="https://example.com/photo.jpg" required>
 
-            <button class="submit" type="submit">SUBMIT PROFILE</button>
-        </form>
-    </section>
+      <label for="category">CHOOSE CATEGORY</label>
+      <select id="category" required>
+        <option value="chad">CHAD LIST</option>
+        <option value="adam">ADAM LIST</option>
+        <option value="htn">HTN LIST</option>
+      </select>
 
-    <p class="note">
-        DEMO VERSION · Votes are stored only in this browser.
-        This is not yet a global voting system.
-        Only submit images you have permission to use.
-    </p>
-
+      <button class="submit-btn" type="submit">SUBMIT PROFILE</button>
+      <p id="message" role="status"></p>
+      <p class="note">Only submit photos you have permission to use. Keep profile names respectful.</p>
+    </form>
+  </section>
 </main>
 
-<footer>
-    © <span id="year"></span> GLOBAL CHADS RANKING
-    <br><br>
-    RANKINGS BUILT BY THE COMMUNITY 🗿
-</footer>
+<footer>GLOBAL CHADS RANKING · BLACK & RED EDITION</footer>
 
 <script>
-const starterChads = [
-    {
-        id: 1,
-        name: "The Alpha",
-        image: "",
-        votes: 0
-    },
-    {
-        id: 2,
-        name: "The Legend",
-        image: "",
-        votes: 0
-    },
-    {
-        id: 3,
-        name: "The Warrior",
-        image: "",
-        votes: 0
-    }
-];
+const categories = {
+  chad: {count:100, grid:"chad-grid"},
+  adam: {count:50, grid:"adam-grid"},
+  htn: {count:100, grid:"htn-grid"}
+};
 
-let chads;
+const storageKey = "gcr_profiles_v2";
+const voteKey = "gcr_votes_v2";
 
-try {
-    const saved = localStorage.getItem("gcr_chads");
-    chads = saved ? JSON.parse(saved) : starterChads;
-
-    if (!Array.isArray(chads)) {
-        chads = starterChads;
-    }
-} catch (error) {
-    chads = starterChads;
+function readStorage(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value ?? fallback;
+  } catch {
+    return fallback;
+  }
 }
 
-function saveChads() {
-    try {
-        localStorage.setItem("gcr_chads", JSON.stringify(chads));
-    } catch (error) {
-        alert("Unable to save data in this browser.");
-    }
+let profiles = readStorage(storageKey, {
+  chad: [], adam: [], htn: []
+});
+let votes = readStorage(voteKey, {});
+
+function saveData() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(profiles));
+    localStorage.setItem(voteKey, JSON.stringify(votes));
+    return true;
+  } catch {
+    alert("Browser storage is full or unavailable. Try another photo URL.");
+    return false;
+  }
 }
 
-function renderRanking() {
-    const ranking = document.getElementById("ranking");
-
-    ranking.innerHTML = "";
-
-    const sorted = [...chads].sort((a, b) => b.votes - a.votes);
-
-    if (sorted.length === 0) {
-        ranking.textContent = "No profiles yet. Submit a Chad!";
-        return;
-    }
-
-    sorted.forEach((chad, index) => {
-        const card = document.createElement("div");
-        card.className = "card";
-
-        const rank = document.createElement("div");
-        rank.className = "rank";
-        rank.textContent = "#" + (index + 1);
-
-        const avatar = document.createElement("img");
-        avatar.className = "avatar";
-        avatar.alt = "Profile image";
-
-        if (chad.image) {
-            avatar.src = chad.image;
-            avatar.onerror = function() {
-                this.style.display = "none";
-            };
-        } else {
-            avatar.style.display = "none";
-        }
-
-        const info = document.createElement("div");
-        info.className = "info";
-
-        const name = document.createElement("h3");
-        name.textContent = chad.name;
-
-        const votes = document.createElement("p");
-        votes.textContent = "🔥 " + chad.votes + " votes";
-
-        info.appendChild(name);
-        info.appendChild(votes);
-
-        const button = document.createElement("button");
-        button.className = "vote";
-        button.textContent = "▲ VOTE";
-
-        button.addEventListener("click", function() {
-            chad.votes++;
-            saveChads();
-            renderRanking();
-        });
-
-        card.appendChild(rank);
-        card.appendChild(avatar);
-        card.appendChild(info);
-        card.appendChild(button);
-
-        ranking.appendChild(card);
-    });
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, ch =>
+    ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])
+  );
 }
 
-document.getElementById("submitForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+function safeImageURL(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:" ? url.href : "";
+  } catch {
+    return "";
+  }
+}
 
-    const name = document.getElementById("chadName").value.trim();
-    const image = document.getElementById("chadImage").value.trim();
+function renderCategory(key) {
+  const config = categories[key];
+  const grid = document.getElementById(config.grid);
+  grid.innerHTML = "";
 
-    if (!name) {
-        alert("Please enter a name.");
-        return;
+  for (let i = 0; i < config.count; i++) {
+    const profile = profiles[key][i];
+    const card = document.createElement("article");
+    card.className = "slot" + (profile ? " filled" : "");
+
+    if (!profile) {
+      card.innerHTML = `
+        <div class="slot-top">
+          <div class="avatar"></div>
+          <div class="profile-info">
+            <div class="empty">EMPTY SLOT #${i+1}</div>
+            <div class="rank">Awaiting profile</div>
+          </div>
+        </div>`;
+    } else {
+      const name = escapeHTML(profile.name);
+      const photo = safeImageURL(profile.photo);
+      const count = Number(votes[profile.id]) || 0;
+
+      card.innerHTML = `
+        <div class="slot-top">
+          <img class="avatar" alt="" loading="lazy">
+          <div class="profile-info">
+            <div class="profile-name">${name}</div>
+            <div class="rank">RANK #${i+1}</div>
+          </div>
+        </div>
+        <div class="slot-bottom">
+          <button class="vote" type="button">▲ VOTE</button>
+          <span class="votes">${count} votes</span>
+        </div>`;
+
+      const img = card.querySelector("img");
+      if (photo) {
+        img.src = photo;
+        img.onerror = () => { img.removeAttribute("src"); };
+      }
+
+      const button = card.querySelector(".vote");
+      button.addEventListener("click", () => {
+        votes[profile.id] = (Number(votes[profile.id]) || 0) + 1;
+        if (saveData()) renderCategory(key);
+      });
     }
 
-    chads.push({
-        id: Date.now(),
-        name: name,
-        image: image,
-        votes: 0
-    });
+    grid.appendChild(card);
+  }
+}
 
-    saveChads();
-    renderRanking();
+function renderAll() {
+  Object.keys(categories).forEach(renderCategory);
+}
 
-    this.reset();
+document.getElementById("profile-form").addEventListener("submit", event => {
+  event.preventDefault();
 
-    document.getElementById("leaderboard").scrollIntoView({
-        behavior: "smooth"
-    });
+  const name = document.getElementById("name").value.trim();
+  const photo = safeImageURL(document.getElementById("photo").value.trim());
+  const category = document.getElementById("category").value;
+  const message = document.getElementById("message");
 
-    alert("Profile added to this browser's demo leaderboard!");
+  if (!name || !photo) {
+    message.textContent = "Please enter a name and a valid image URL.";
+    return;
+  }
+
+  if (!categories[category]) {
+    message.textContent = "Please choose a valid category.";
+    return;
+  }
+
+  if (profiles[category].length >= categories[category].count) {
+    message.textContent = "This category is full. Please choose another.";
+    return;
+  }
+
+  const profile = {
+    id: "p_" + Date.now() + "_" + Math.random().toString(36).slice(2,8),
+    name,
+    photo
+  };
+
+  profiles[category].push(profile);
+
+  if (!saveData()) {
+    profiles[category].pop();
+    return;
+  }
+
+  renderCategory(category);
+  event.target.reset();
+  message.textContent = "Profile added to this browser!";
+  document.getElementById(category).scrollIntoView({behavior:"smooth"});
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
-
-renderRanking();
+renderAll();
 </script>
-
 </body>
 </html>
